@@ -20,15 +20,15 @@ const UserRepo = ({ match, history }) => {
 
   useEffect(() => {
     init();
-  });
+  }, [username]);
 
-  const init = () => {
-    getUser();
-    getRepo();
+  const init = async () => {
+    setUser({ loading: true });
+    await getUser()
+    await getRepo()
   };
 
   const getUser = async () => {
-    setUser({ loading: true });
     const result = await getByUser(username);
     setUser({ ...result.data, loading: false });
   };
