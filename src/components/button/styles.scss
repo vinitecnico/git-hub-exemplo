@@ -1,0 +1,21 @@
+@import '../../scss/variables.scss';
+@import '../../scss/effects.scss';
+
+.btn {
+    @include fade-colors;
+    border: none;
+    border-radius: $default-border-radius;
+    background-color: $primary-button-color;
+    padding: 10px;
+    color: #fff;
+    width: 100%;
+
+    &.btn-default {
+        background-color: $primary-button-color;
+
+        &:hover,&:active {
+            background-color: $primary-button-color-hover;
+        }
+        
+    }
+}

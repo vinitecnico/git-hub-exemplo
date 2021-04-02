@@ -1,0 +1,24 @@
+.user-details {
+  .user-avatar {
+    border-radius: 50%;
+    max-width: 200px;
+  }
+
+  .name {
+    font-size: 26px;
+    line-height: 1.25;
+    margin-bottom: 0;
+  }
+
+  .login {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 24px;
+    margin-top: 2px;
+  }
+
+  .location {
+    font-size: 14px;
+  }
+}

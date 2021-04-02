@@ -1,0 +1,12 @@
+@import "../../scss/variables.scss";
+
+.content {
+    background-color: $main-background-color;
+    border-radius: $default-border-radius;
+    padding: 0;
+    margin-bottom: 40px;
+
+    &.no-bg-color {
+        background-color: $background-color;
+    }
+}

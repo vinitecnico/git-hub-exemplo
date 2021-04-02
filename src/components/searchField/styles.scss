@@ -1,0 +1,49 @@
+@import "../../scss/variables.scss";
+@import "../../scss/effects.scss";
+
+$search-field-height: 35px;
+
+.search-field {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+
+    .search-field-input {
+        font-size: 18px;
+        margin-left: 20px;
+        padding: 0px 10px;
+        height: $search-field-height;
+        width: 100%;
+        border: none;
+        border-radius: $default-border-radius;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+
+        &::placeholder {
+            color: $tertiary-font-color;
+        }
+    }
+
+    .search-field-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: $search-field-height;
+        border: none;
+        border-radius: 0;
+        border-top-right-radius: $default-border-radius;
+        border-bottom-right-radius: $default-border-radius;
+        cursor: pointer;
+
+        background-color: $secondary-button-color;
+
+        &:hover {
+            background-color: $secondary-button-color-hover;
+        }
+
+        @include fade-colors;
+    }
+}

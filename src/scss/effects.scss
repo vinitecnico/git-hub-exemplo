@@ -1,0 +1,11 @@
+@mixin fade-colors {
+    transition: background-color .3s ease;
+
+    &:hover {
+        transition: background-color .3s ease;
+    }
+
+    &:active {
+        transition: background-color .3s ease;
+    }
+}
