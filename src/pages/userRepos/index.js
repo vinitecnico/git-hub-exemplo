@@ -22,10 +22,15 @@ const UserRepo = ({ match, history }) => {
     init();
   });
 
-  const init = async () => {
+  const init = () => {
+    getUser();
+    getRepo();
+  };
+
+  const getUser = async () => {
+    setUser({ loading: true });
     const result = await getByUser(username);
     setUser({ ...result.data, loading: false });
-    getRepo();
   };
 
   const getRepo = async () => {
