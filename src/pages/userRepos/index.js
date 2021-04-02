@@ -5,6 +5,7 @@ import {
   Loading,
   UserDetails,
   UserListRepo,
+  Select
 } from "../../components";
 import { getByUser, getReposByUser } from "../../clients";
 import "./styles.scss";
@@ -13,6 +14,13 @@ const UserRepo = ({ match, history }) => {
   const { username } = match.params;
   const [user, setUser] = useState({});
   const [repo, setRepo] = useState({ data: [] });
+  const filterOptions = [
+    { label: "Text asc", sort: 1, key: "name" },
+    { label: "Text desc", sort: -1, key: "name" },
+    { label: "Date asc", sort: 1, key: "updated_at" },
+    { label: "Date desc", sort: -1, key: "updated_at" },
+  ];
+  const [filterSelected, setFilterSelected] = useState(0);
 
   if (!username) {
     history.push("/");
@@ -24,8 +32,8 @@ const UserRepo = ({ match, history }) => {
 
   const init = async () => {
     setUser({ loading: true });
-    await getUser()
-    await getRepo()
+    await getUser();
+    await getRepo();
   };
 
   const getUser = async () => {
@@ -36,6 +44,25 @@ const UserRepo = ({ match, history }) => {
   const getRepo = async () => {
     const result = await getReposByUser(username);
     setRepo({ data: result.data, loading: false });
+  };
+
+  const handleChange = (env) => {
+    setFilterSelected(env.target.value);
+    sortRepo(filterOptions[env.target.value]);
+  };
+
+  const dynamicSort = (property, sortOrder) => {
+    return (a, b) => {
+      const result =
+        a[property] < b[property] ? -1 : a[property] > b[property] ? 1 : 0;
+      return result * sortOrder;
+    };
+  };
+
+  const sortRepo = ({ key, sort }) => {
+    console.log("here ==", key, sort);
+    var result = repo.data.sort(dynamicSort(key, sort));
+    setRepo({ data: result });
   };
 
   return (
@@ -49,6 +76,7 @@ const UserRepo = ({ match, history }) => {
               <UserDetails user={user} />
             </section>
             <section className="col-md-10">
+              <Select filterOptions={filterOptions} filterSelected={filterSelected}  handleChange={handleChange}/>
               <UserListRepo data={repo.data} />
             </section>
           </section>

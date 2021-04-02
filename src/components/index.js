@@ -6,6 +6,7 @@ import Breadcrumbs from './breadcrumbs'
 import Loading from './loading'
 import UserDetails from './userDetails'
 import UserListRepo from './userListRepo'
+import Select from './select'
 
 export {
     Header,
@@ -15,5 +16,6 @@ export {
     Breadcrumbs,
     Loading,
     UserDetails,
-    UserListRepo
+    UserListRepo,
+    Select
 }
