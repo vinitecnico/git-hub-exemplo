@@ -1,4 +1,6 @@
 import React from "react";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./styles.scss";
 
 const UserListRepo = ({ data = [] }) => {
@@ -30,8 +32,8 @@ const UserListRepo = ({ data = [] }) => {
               <h1>{name}</h1>
               <p>{description}</p>
               <p>
-                language: {language} - star: {stargazers_count} - last update:{" "}
-                {formatDate(updated_at)}
+                language: <strong>{language}</strong>  {stargazers_count > 0 && (<><FontAwesomeIcon icon={faStar} /> <strong>{stargazers_count}</strong> </>)} - last update:{" "}
+                <strong>{formatDate(updated_at)}</strong>
               </p>
             </li>
           )
