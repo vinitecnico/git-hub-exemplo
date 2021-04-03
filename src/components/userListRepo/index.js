@@ -6,6 +6,8 @@ import csharpIcon from "../../assets/c-logo.png";
 import javascriptIcon from "../../assets/javascript.png";
 import htmlIcon from "../../assets/arquivo-html.png";
 import arquivoIcon from "../../assets/arquivo.png";
+import typeScriptIcon from "../../assets/typescript.png";
+import shellIcon from "../../assets/shell.png";
 import "./styles.scss";
 
 const UserListRepo = ({ data = [] }) => {
@@ -23,16 +25,20 @@ const UserListRepo = ({ data = [] }) => {
 
   const SetIcon = ({ value }) => {
     switch (value) {
-      case 'C#':
-        return <img src={csharpIcon} />
-        case 'JavaScript':
-        return <img src={javascriptIcon} />
-        case 'Go':
-        return <img src={goIcon} />
-        case 'Html':
-        return <img src={htmlIcon} />
+      case "C#":
+        return <img src={csharpIcon} />;
+      case "JavaScript":
+        return <img src={javascriptIcon} />;
+      case "Go":
+        return <img src={goIcon} />;
+      case "Html":
+        return <img src={htmlIcon} />;
+      case "TypeScript":
+        return <img src={typeScriptIcon} />;
+      case "Shell":
+        return <img src={shellIcon} />
       default:
-        return <img src={arquivoIcon} />
+        return <img src={arquivoIcon} />;
     }
   };
 
@@ -55,7 +61,7 @@ const UserListRepo = ({ data = [] }) => {
                 <p>
                   {language && (
                     <span>
-                      <SetIcon value={language}/> <strong>{language}</strong>
+                      <SetIcon value={language} /> <strong>{language}</strong>
                     </span>
                   )}
                   {stargazers_count > 0 && (
