@@ -4,8 +4,13 @@ import history from "../../history";
 import "./styles.scss";
 
 const SearchField = ({ ...props }) => {
+  let username = null
+  if(history.location.pathname.includes('/user/')) {
+    const list = history.location.pathname.split('/')
+    username = list[list.length - 1]
+  }
   const buttonRef = useRef(null);
-  const [term, setTerm] = useState();
+  const [term, setTerm] = useState(username);
 
   const handleChange = (e) => {
     setTerm(e.target.value);

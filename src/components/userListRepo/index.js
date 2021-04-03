@@ -33,14 +33,20 @@ const UserListRepo = ({ data = [] }) => {
                 <h1>{name}</h1>
                 <p className="description-bio">{description}</p>
                 <p>
-                  language: <strong>{language}</strong>{" "}
+                  {language && (
+                    <span>
+                      language: <strong>{language}</strong>
+                    </span>
+                  )}
                   {stargazers_count > 0 && (
-                    <>
-                      <FontAwesomeIcon icon={faStar} />{" "}
-                      <strong>{stargazers_count}</strong>{" "}
-                    </>
-                  )}{" "}
-                  - last update: <strong>{formatDate(updated_at)}</strong>
+                    <span>
+                      <FontAwesomeIcon icon={faStar} />
+                      <strong>{stargazers_count}</strong>
+                    </span>
+                  )}
+                  <span>
+                    last update: <strong>{formatDate(updated_at)}</strong>
+                  </span>
                 </p>
               </article>
             </li>
