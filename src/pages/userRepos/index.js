@@ -81,20 +81,20 @@ const UserRepo = ({ match, history }) => {
               <UserDetails user={user} />
             </section>
             <section className="col-md-10">
-              <Select
-                filterOptions={filterOptions}
-                filterSelected={filterSelected}
-                handleChange={handleChange}
-              />
+              {repo.data.length > 1 && (
+                <Select
+                  filterOptions={filterOptions}
+                  filterSelected={filterSelected}
+                  handleChange={handleChange}
+                />
+              )}
               <UserListRepo data={repo.data} />
             </section>
           </section>
         )}
         {!user.avatar_url && hasError && (
           <section className="home-body col-12">
-            <h3 className="home-body-title">
-              user not found!
-            </h3>
+            <h3 className="home-body-title">user not found!</h3>
           </section>
         )}
       </>
