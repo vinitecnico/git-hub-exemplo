@@ -90,7 +90,7 @@ const UserRepo = ({ match, history }) => {
             </section>
           </section>
         )}
-        {hasError && (
+        {!user.avatar_url && hasError && (
           <section className="home-body col-12">
             <h3 className="home-body-title">
               user not found!
