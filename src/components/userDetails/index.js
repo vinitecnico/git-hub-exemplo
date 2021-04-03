@@ -11,12 +11,15 @@ const UserDetails = ({ user }) => {
       <img src={avatar_url} className="user-avatar" alt={name} />
       <h2 className="name">{name}</h2>
       <h3 className="login">{login}</h3>
-      <h4 className="location">
-        <FontAwesomeIcon icon={faHome} /> {location}
-      </h4>
+      {location && (
+        <h4 className="location">
+          <FontAwesomeIcon icon={faHome} /> {location}
+        </h4>
+      )}
       <p>{bio}</p>
       <p>
-        <FontAwesomeIcon icon={faUserFriends} /> <strong>{followers}</strong> followers <strong>{following}</strong> following
+        <FontAwesomeIcon icon={faUserFriends} /> <strong>{followers}</strong>{" "}
+        followers <strong>{following}</strong> following
       </p>
     </article>
   );
