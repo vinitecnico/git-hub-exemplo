@@ -26,19 +26,19 @@ const UserListRepo = ({ data = [] }) => {
   const SetIcon = ({ value }) => {
     switch (value) {
       case "C#":
-        return <img src={csharpIcon} />;
+        return <img src={csharpIcon} alt={value} />;
       case "JavaScript":
-        return <img src={javascriptIcon} />;
+        return <img src={javascriptIcon} alt={value} />;
       case "Go":
-        return <img src={goIcon} />;
+        return <img src={goIcon} alt={value} />;
       case "Html":
-        return <img src={htmlIcon} />;
+        return <img src={htmlIcon} alt={value} />;
       case "TypeScript":
-        return <img src={typeScriptIcon} />;
+        return <img src={typeScriptIcon} alt={value} />;
       case "Shell":
-        return <img src={shellIcon} />
+        return <img src={shellIcon} alt={value} />
       default:
-        return <img src={arquivoIcon} />;
+        return <img src={arquivoIcon} alt={value} />;
     }
   };
 
