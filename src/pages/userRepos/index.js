@@ -77,10 +77,10 @@ const UserRepo = ({ match, history }) => {
         {user.loading && !hasError && <Loading />}
         {!user.loading && user.avatar_url && (
           <section className="row user-repo">
-            <section className="col-md-2">
+            <section className="col-xs-12 col-lg-2 col-md-3">
               <UserDetails user={user} />
             </section>
-            <section className="col-md-10">
+            <section className="col-xs-12 col-lg-10 col-md-9">
               {repo.data.length > 1 && (
                 <Select
                   filterOptions={filterOptions}
