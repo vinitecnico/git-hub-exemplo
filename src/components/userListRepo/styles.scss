@@ -17,7 +17,11 @@
       p {
         margin-bottom: 5px;
 
-        svg {
+        img {
+          max-height: 24px;
+        }
+
+        svg, img {
           margin-right: 10px;
         }
 

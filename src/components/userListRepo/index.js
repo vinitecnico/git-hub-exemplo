@@ -1,6 +1,11 @@
 import React from "react";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import goIcon from "../../assets/go-lang.png";
+import csharpIcon from "../../assets/c-logo.png";
+import javascriptIcon from "../../assets/javascript.png";
+import htmlIcon from "../../assets/arquivo-html.png";
+import arquivoIcon from "../../assets/arquivo.png";
 import "./styles.scss";
 
 const UserListRepo = ({ data = [] }) => {
@@ -14,6 +19,21 @@ const UserListRepo = ({ data = [] }) => {
 
   const formatDate = (value) => {
     return new Date(value).toLocaleDateString("pt-BR", options);
+  };
+
+  const SetIcon = ({ value }) => {
+    switch (value) {
+      case 'C#':
+        return <img src={csharpIcon} />
+        case 'JavaScript':
+        return <img src={javascriptIcon} />
+        case 'Go':
+        return <img src={goIcon} />
+        case 'Html':
+        return <img src={htmlIcon} />
+      default:
+        return <img src={arquivoIcon} />
+    }
   };
 
   return (
@@ -35,7 +55,7 @@ const UserListRepo = ({ data = [] }) => {
                 <p>
                   {language && (
                     <span>
-                      language: <strong>{language}</strong>
+                      <SetIcon value={language}/> <strong>{language}</strong>
                     </span>
                   )}
                   {stargazers_count > 0 && (
