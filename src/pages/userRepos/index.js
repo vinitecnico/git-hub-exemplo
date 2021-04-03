@@ -20,6 +20,9 @@ const UserRepo = ({ match, history }) => {
     { label: "Text desc", sort: -1, key: "name" },
     { label: "Date asc", sort: 1, key: "updated_at" },
     { label: "Date desc", sort: -1, key: "updated_at" },
+    { label: "Language asc", sort: 1, key: "language" },
+    { label: "Language desc", sort: -1, key: "language" },
+    
   ];
   const [filterSelected, setFilterSelected] = useState(0);
 
