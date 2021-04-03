@@ -11,9 +11,14 @@ header {
 
 nav {
     height: 100%;
+    padding-top: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
+
+    .header-body {
+        display: flex;
+    }
 }
 
 .logo {

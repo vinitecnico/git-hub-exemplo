@@ -10,11 +10,11 @@ const UserListRepo = ({ data = [] }) => {
     day: "numeric",
     hour: "numeric",
     minute: "numeric",
-  }
+  };
 
   const formatDate = (value) => {
-    return new Date(value).toLocaleDateString("pt-BR", options)
-  }
+    return new Date(value).toLocaleDateString("pt-BR", options);
+  };
 
   return (
     <article className="user-list-repo">
@@ -28,13 +28,21 @@ const UserListRepo = ({ data = [] }) => {
             updated_at,
             description,
           }) => (
-            <li key={id}>
-              <h1>{name}</h1>
-              <p>{description}</p>
-              <p>
-                language: <strong>{language}</strong>  {stargazers_count > 0 && (<><FontAwesomeIcon icon={faStar} /> <strong>{stargazers_count}</strong> </>)} - last update:{" "}
-                <strong>{formatDate(updated_at)}</strong>
-              </p>
+            <li key={id} className="card">
+              <article className="card-body">
+                <h1>{name}</h1>
+                <p className="description-bio">{description}</p>
+                <p>
+                  language: <strong>{language}</strong>{" "}
+                  {stargazers_count > 0 && (
+                    <>
+                      <FontAwesomeIcon icon={faStar} />{" "}
+                      <strong>{stargazers_count}</strong>{" "}
+                    </>
+                  )}{" "}
+                  - last update: <strong>{formatDate(updated_at)}</strong>
+                </p>
+              </article>
             </li>
           )
         )}
